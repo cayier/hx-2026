@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>资产预警工作台</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="logo" aria-hidden="true">◇</span><div><strong>资产预警</strong><small>广州分行 · 安全运营</small></div></div>
+    <nav aria-label="主导航">
+      <button class="nav active" data-page="alerts"><span aria-hidden="true">◉</span> 告警工作台</button>
+      <button class="nav" data-page="assets"><span aria-hidden="true">▣</span> 资产台账</button>
+      <button class="nav" data-page="knowledge"><span aria-hidden="true">▤</span> 分行知识库</button>
+    </nav>
+    <div id="mode" class="mode"></div>
+  </aside>
+  <main>
+    <header><div class="breadcrumb">安全运营 <span>/</span> <span id="crumb">告警工作台</span></div><button id="refresh" class="secondary">刷新</button></header>
+    <div class="content">
+      <div class="intro"><div><h1 id="title">告警工作台</h1><p id="subtitle"></p></div><button id="add" class="primary">＋ 接入告警</button></div>
+      <p id="notice" role="status" hidden></p>
+      <section id="metrics" class="metrics" aria-label="告警统计"></section>
+      <section class="panel">
+        <div class="panel-head"><div><h2 id="list-title">告警记录</h2><p id="count"></p></div><div class="filters">
+          <input id="search" type="search" placeholder="搜索记录" aria-label="搜索记录">
+          <select id="filter" aria-label="按状态筛选">
+            <option value="">全部状态</option><option>已完成</option><option>低于阈值</option><option>待分派</option>
+            <option>待研判</option><option>处理中</option><option>研判失败</option><option>通知失败</option>
+          </select>
+        </div></div>
+        <div class="table-scroll"><table><thead id="columns"></thead><tbody id="rows"></tbody></table></div>
+      </section>
+    </div>
+  </main>
+  <dialog id="dialog"><div class="dialog-head"><h2 id="dialog-title"></h2><button id="close" class="secondary" aria-label="关闭">关闭</button></div><div id="dialog-body"></div></dialog>
+</body>
+</html>
